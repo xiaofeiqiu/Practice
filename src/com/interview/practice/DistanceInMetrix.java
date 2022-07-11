@@ -5,17 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
-class Node {
-    public int x;
-    public int y;
-
-    public Node(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-}
-
-public class MatrixBFSBasic {
+public class DistanceInMetrix {
 
     public int[] dx = new int[]{0, -1, 0, 1};
     public int[] dy = new int[]{-1, 0, 1, 0};

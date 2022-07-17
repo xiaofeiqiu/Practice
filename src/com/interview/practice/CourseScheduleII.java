@@ -11,19 +11,22 @@ public class CourseScheduleII {
             return new int[0];
         }
 
-        int[] indegree = new int[numCourses];
-        List<Integer>[] edges = new ArrayList[numCourses];
+        // init
+        List<Integer>[] graph = new ArrayList[numCourses];
         for (int i = 0; i < numCourses; i++) {
-            edges[i] = new ArrayList<>();
+            graph[i] = new ArrayList<>();
         }
 
+        // build graph and indegree
+        int[] indegree = new int[numCourses];
         for (int[] prerequisite : prerequisites) {
-            int course = prerequisite[0];
-            int dependency = prerequisite[1];
-            edges[dependency].add(course);
-            indegree[course]++;
+            int child = prerequisite[0];
+            int parent = prerequisite[1];
+            graph[parent].add(child);
+            indegree[child]++;
         }
 
+        // init queue, put courses to queue if indegree == 0
         Queue<Integer> queue = new ArrayDeque<>();
         for (int i = 0; i < indegree.length; i++) {
             if (indegree[i] == 0) {
@@ -31,26 +34,30 @@ public class CourseScheduleII {
             }
         }
 
-
         int index = 0;
         int[] result = new int[numCourses];
 
         while (!queue.isEmpty()) {
+            // add course to result, and i++
             int course = queue.poll();
             result[index++] = course;
 
-            for (int nextCourse : edges[course]) {
+            // child indegree --
+            for (int nextCourse : graph[course]) {
                 indegree[nextCourse]--;
+                // add child to queue if indegre == 0
                 if (indegree[nextCourse] == 0) {
                     queue.offer(nextCourse);
                 }
             }
         }
 
+        // return result if course taken == numCourses
         if (index == numCourses) {
             return result;
         }
 
+        // else return empty array
         return new int[0];
     }
 }

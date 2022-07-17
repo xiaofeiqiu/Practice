@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
-public class MaxAreaofIsland {
+// O(m * n), because we visited all cell once
+public class MaxAreaOfIsland {
     int WATER = 0;
 
     int[] dx = new int[]{0, 1, 0, -1};

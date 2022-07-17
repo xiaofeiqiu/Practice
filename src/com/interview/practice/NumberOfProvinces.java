@@ -6,6 +6,7 @@ import java.util.Queue;
 // typical bfs problem
 // for each unseen city, find its neighbors and mark them as seen using BFS
 
+// Every city are visited once, So, time complexity is O(n)
 public class NumberOfProvinces {
     public int findCircleNum(int[][] isConnected) {
         if (isConnected == null || isConnected.length == 0) {

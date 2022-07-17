@@ -7,6 +7,12 @@ import java.util.*;
 // starting with target node, do the bfs
 // neighbor = node.left + node.right + node.parent
 
+// Time complexity for preorder function O(n)
+// Time complexity for bfs O(n)
+// Overall TC: O(n)
+
+// Space Complexity: because we need to visit all nodes, and we use a set to store all seen nodes, So O(n)
+
 public class AllNodesDistanceKinBinaryTree {
     public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
         if (root == null || target == null) {
@@ -55,6 +61,7 @@ public class AllNodesDistanceKinBinaryTree {
         return new ArrayList<>();
     }
 
+    // O(1)
     private List<TreeNode> getNeighbors(TreeNode curr, Map<TreeNode, TreeNode> parentMap) {
         List<TreeNode> nodes = new ArrayList<>();
         if (curr != null && curr.left != null) {
@@ -72,7 +79,7 @@ public class AllNodesDistanceKinBinaryTree {
     }
 
 
-    // preorder traversal find parent node
+    // preorder traversal find parent node, each node visited once => O(n)
     private void preorder(TreeNode root, TreeNode parent, Map<TreeNode, TreeNode> parentMap) {
         if (root == null) {
             return;

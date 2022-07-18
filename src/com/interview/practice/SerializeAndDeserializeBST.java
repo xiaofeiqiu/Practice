@@ -15,7 +15,8 @@ import java.util.Deque;
 // 我们可以利用整个点，来做serialization 和 deserialization
 
 public class SerializeAndDeserializeBST {
-
+    // time: O(n) because we visit all nodes once
+    // space: O(n) need to store all nodes in string format
     public String serialize(TreeNode root) {
         if (root == null) {
             return "";
@@ -37,6 +38,8 @@ public class SerializeAndDeserializeBST {
     }
 
     // Decodes your encoded data to tree.
+    // time: O(n)
+    // space: O(n)
     public TreeNode deserialize(String data) {
         if (data == null || data.isEmpty()) {
             return null;

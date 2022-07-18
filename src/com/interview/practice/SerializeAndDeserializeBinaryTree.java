@@ -6,6 +6,8 @@ public class SerializeAndDeserializeBinaryTree {
 
     // use BFS to traverse tree layer by layer
     // append string value to the result
+    // time: O(n), n is number of nodes
+    // space: O(n), we used a list to store the result
     public String serialize(TreeNode root) {
         if (root == null) {
             return "";
@@ -35,6 +37,8 @@ public class SerializeAndDeserializeBinaryTree {
     }
 
     // Decodes your encoded data to tree.
+    // Time: O(n), visit all nodes once
+    // Space: O(n), we need to store all nodes
     public TreeNode deserialize(String data) {
         if (data == null || data.isEmpty()) {
             return null;
